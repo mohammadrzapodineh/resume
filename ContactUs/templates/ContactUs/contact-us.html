@@ -1,0 +1,145 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}تماس با ما{% endblock %}
+{% block content %}
+  <div class="contact-information-section section section-padding-bottom">
+            <div class="container">
+                <div class="row margin-bottom-85">
+                    <div class="col-12">
+                        <div class="contact-title max-width-740">
+                            <h2 class="title">راه های ارتباطی </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-30 row-cols-lg-3 row-cols-md-2 row-cols-1 max-mb-n30">
+                    <div class="col max-mb-30">
+                        <!-- Single Contact Info Start -->
+                        <div class="contact-info">
+                            <div class="icon">
+                                <i class="fal fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info">
+                                <h4 class="title"> آدرس </h4>
+                                <span class="info-text">{{ site_setting.address }}</span>
+                            </div>
+                        </div>
+                        <!-- Single Contact Info End -->
+                    </div>
+                    <div class="col max-mb-30">
+                        <!-- Single Contact Info Start -->
+                        <div class="contact-info">
+                            <div class="icon">
+                                <i class="fal fa-phone"></i>
+                            </div>
+                            <div class="info">
+                                <h4 class="title"> تماس با ما</h4>
+                                <span class="info-text">
+                                    ایمیل: <a href="mailto:hello@hasthemes.com">{{ site_setting.email }}</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Single Contact Info End -->
+                    </div>
+                    <div class="col max-mb-30">
+                        <!-- Single Contact Info Start -->
+                        <div class="contact-info">
+                            <div class="icon">
+                                <i class="fal fa-clock"></i>
+                            </div>
+                            <div class="info">
+                                <h4 class="title"> ساعت کار</h4>
+                                <span class="info-text"> از شنبه تا جمعه </span>
+                            </div>
+                        </div>
+                        <!-- Single Contact Info End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form Section Start -->
+        <div class="contact-form-section section section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-lg-2 col-lg-8">
+                        <div class="contact-title max-width-600">
+                            <h2 class="title">از طریق فرم زیر با ما در ارتباط باش .</h2>
+                        </div>
+                        <div class="contact-form">
+                            <form action="" method="post" novalidate>
+                                {% csrf_token %}
+                                <div class="row max-mb-n30">
+                                    <div class="col-md-6 col-12 max-mb-30">
+                                       {{ form.name }}
+                                        {% for eror in form.name.errors %}
+                                            <p class="text-danger">{{ eror }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-md-6 col-12 max-mb-30">
+                                        {{ form.email }}
+                                                 {% for eror in form.email.errors %}
+                                            <p class="text-danger ">{{ eror }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-md-12 col-12 max-mb-30">
+                                       {{ form.subject }}
+                                                 {% for eror in form.subject.errors %}
+                                            <p class="text-danger ">{{ eror }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        {{ form.text }}
+                                                       {% for eror in form.text.errors %}
+                                            <p class="text-danger">{{ eror }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-12 max-mb-30">
+                                        {{ form.captcha }}
+
+                                                       {% for eror in form.captcha.errors %}
+                                            <p class="text-danger">{{ eror }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-12 text-center max-mb-30">
+                                        <button type="submit" class="btn btn-primary btn-hover-secondary btn-width-180 btn-height-60">ارسال </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block title_section %}
+          <div class="page-title-section section section-padding-top-0">
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'Home:home_page' %}">صفحه اصلی</a></li>
+                        <li class="current">{{ title }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block footer_ref %}
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
+{% block header_ref %}
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+
+{% endblock %}
+
+
+{% block canonical_page %}https://sunlearn.ir/contact-us/{% endblock %}
+{% block og_title %}راه های ارتباطی با سان لرن{% endblock %}
+{% block og_url %}https://sunlearn.ir/contact-us/{% endblock %}
+{% block og_description %}از طریق ایمیل یا فرم تماس با ما میتوانید با ما در ارتباط باشید{% endblock %}
+{% block twitter_title %}راه های ارتباطی با سان لرن{% endblock %}
+{% block twitter_description %}از طریق ایمیل یا فرم تماس با ما میتوانید با ما در ارتباط باشید{% endblock %}

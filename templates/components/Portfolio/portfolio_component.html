@@ -1,0 +1,14 @@
+		<div class="item col-lg-4 col-sm-6 design">
+											<figure>
+												<img alt="{{  portfolio.title }}" src="{{ portfolio.image.url }}">
+												<figcaption>
+													<h3>{{ portfolio.title }}</h3>
+                                                          {% if portfolio.link %}
+													    <a  class="link" href="{{ portfolio.link }}"></a>
+                                                              {% else %}
+                                                                 <a  class="image-link" href="{{ portfolio.image.url }}"></a>
+                                                        {% endif %}
+
+												</figcaption>
+											</figure>
+										</div>
