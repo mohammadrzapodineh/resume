@@ -1,0 +1,56 @@
+services:
+  app:
+    depends_on:
+      - db
+    build: .
+    command: bash -c "python manage.py migrate  && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
+
+    env_file:
+      - .env
+    container_name: my_app_test
+    restart: always
+    networks:
+      - app_network
+      - nginx_network
+    volumes:
+      - .:/src/
+      - app_static_volume:/src/static/
+      - app_media_volume:/src/media/
+
+  db:
+    container_name: postgres_data
+    image: postgres
+    ports:
+    - "5432:5432"
+    networks:
+      - app_network
+
+    volumes:
+    - db_volume:/var/lib/postgresql/data
+    restart: always
+    env_file:
+      - .env
+
+
+
+
+networks:
+  app_network:
+    external: true
+  nginx_network:
+    external: true
+
+
+volumes:
+  db_volume:
+    external: true
+  app_static_volume:
+    external: true
+  app_media_volume:
+    external: true
+
+
