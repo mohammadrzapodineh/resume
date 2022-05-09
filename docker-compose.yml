@@ -40,17 +40,12 @@ services:
 
 networks:
   app_network:
-    external: true
   nginx_network:
-    external: true
 
 
 volumes:
   db_volume:
-    external: true
   app_static_volume:
-    external: true
   app_media_volume:
-    external: true
 
 
