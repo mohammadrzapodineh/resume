@@ -3,7 +3,7 @@ This is A Resume App Who created With Django And You can Run This Application Wi
 
 
 # Preview
-- [Resume app](https://qrcodes.s3.ir-thr-at1.arvanstorage.com/Capture.PNG)
+- [Resume app](https://githubpreview.s3.ir-thr-at1.arvanstorage.com/Capture.PNG)
 
 
 
