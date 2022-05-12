@@ -1,0 +1,10 @@
+EMAIL_HOST_PASSWORD="Password Of Email Host"
+EMAIL_HOST_USER="Your Email Host"
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+RECAPTCHA_PUBLIC_KEY="Your Public Key v3"
+RECAPTCHA_PRIVATE_KEY="Your Secret Key V3"
+POSTGRES_DB=app_db
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=Your Password User for Db
+SECRET_KEY = 'django-insecure-v6ay3@@+2z&zc(f_oep=*68dto7hb_=pp_3qisij_$xlbhm$v!'
